@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { clearCurrentProfile } from "../../actions/profileActions";
-import logo from "../../img/logo.webp";
 
 class Navbar extends Component {
   onLogoutClick(e) {
@@ -58,10 +57,9 @@ class Navbar extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-sm navbar-light bg-light mb-4">
+      <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
-          <img src={logo} className="logo img-fluid" alt="logo" />
-          <Link className="navbar-brand" to="/" re>
+          <Link className="navbar-brand" to="/">
             DevConnector
           </Link>
           <button
