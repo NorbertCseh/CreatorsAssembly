@@ -1,26 +1,28 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { registerUser } from "../../actions/authActions";
-import TextFieldGroup from "../common/TextFildGroup";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { registerUser } from '../../actions/authActions';
+import TextFieldGroup from '../common/TextFieldGroup';
 
 class Register extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
-      email: "",
-      password: "",
-      password2: "",
+      name: '',
+      email: '',
+      password: '',
+      password2: '',
       errors: {}
     };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push('/dashboard');
     }
   }
 
@@ -43,13 +45,13 @@ class Register extends Component {
       password: this.state.password,
       password2: this.state.password2
     };
+
     this.props.registerUser(newUser, this.props.history);
   }
 
   render() {
     const { errors } = this.state;
-    //const {errors} = this.props;
-    //const errors = this.state.errors;
+
     return (
       <div className="register">
         <div className="container">
@@ -70,11 +72,11 @@ class Register extends Component {
                 <TextFieldGroup
                   placeholder="Email"
                   name="email"
-                  type="type"
+                  type="email"
                   value={this.state.email}
                   onChange={this.onChange}
                   error={errors.email}
-                  info="This site uses Gravatar so if you want a profile image use a Gravatar email"
+                  info="This site uses Gravatar so if you want a profile image, use a Gravatar email"
                 />
                 <TextFieldGroup
                   placeholder="Password"
@@ -85,7 +87,7 @@ class Register extends Component {
                   error={errors.password}
                 />
                 <TextFieldGroup
-                  placeholder="Confirm password"
+                  placeholder="Confirm Password"
                   name="password2"
                   type="password"
                   value={this.state.password2}
@@ -108,12 +110,9 @@ Register.propTypes = {
   errors: PropTypes.object.isRequired
 };
 
-const mapStateToProprs = state => ({
+const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
 
-export default connect(
-  mapStateToProprs,
-  { registerUser }
-)(withRouter(Register));
+export default connect(mapStateToProps, { registerUser })(withRouter(Register));

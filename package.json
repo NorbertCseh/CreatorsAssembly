@@ -1,7 +1,7 @@
 {
-  "name": "devcon",
+  "name": "cratorsassembly",
   "version": "1.0.0",
-  "description": "Social network for developers",
+  "description": "Social network for creators",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -23,7 +23,9 @@
     "mongoose": "^5.3.13",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "validator": "^10.9.0"
+    "validator": "^10.9.0",
+    "vue": "^2.6.10",
+    "vue-cli": "^2.9.6"
   },
   "devDependencies": {
     "nodemon": "^1.18.6"

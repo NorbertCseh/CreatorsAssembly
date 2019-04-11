@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getCurrentProfile, deleteAccount } from "../../actions/profileActions";
-import Spinner from "../common/Spinner";
-import { Link } from "react-router-dom";
-import ProfileActions from "./ProfileActions";
-import Experience from "./Experience";
-import Education from "./Education";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getCurrentProfile, deleteAccount } from '../../actions/profileActions';
+import Spinner from '../common/Spinner';
+import ProfileActions from './ProfileActions';
+import Experience from './Experience';
+import Education from './Education';
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -22,30 +22,31 @@ class Dashboard extends Component {
     const { profile, loading } = this.props.profile;
 
     let dashboardContent;
+
     if (profile === null || loading) {
       dashboardContent = <Spinner />;
     } else {
-      //Check if logged in user has profile data
+      // Check if logged in user has profile data
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div>
             <p className="lead text-muted">
-              Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>{" "}
+              Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
             </p>
             <ProfileActions />
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
-            <div style={{ marginBottom: "60px" }} />
+            <div style={{ marginBottom: '60px' }} />
             <button
               onClick={this.onDeleteClick.bind(this)}
               className="btn btn-danger"
             >
-              Delete my account
+              Delete My Account
             </button>
           </div>
         );
       } else {
-        //User is logged in, but has no profile
+        // User is logged in but has no profile
         dashboardContent = (
           <div>
             <p className="lead text-muted">Welcome {user.name}</p>
@@ -57,6 +58,7 @@ class Dashboard extends Component {
         );
       }
     }
+
     return (
       <div className="dashboard">
         <div className="container">
@@ -84,7 +86,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { getCurrentProfile, deleteAccount }
-)(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
+  Dashboard
+);

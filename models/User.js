@@ -22,6 +22,9 @@ const usersSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  birthday: {
+    type: Date
   }
 });
 

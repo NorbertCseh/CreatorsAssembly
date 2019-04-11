@@ -9,23 +9,23 @@ const posts = require("./routes/api/posts");
 
 const app = express();
 
-//Body parser middleware
+//Body parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//DB Config
-const db = require("./config/keys").mongoURI;
+//Adatbázis konfiguráció
+const dataBase = require("./config/keys").mongoURI;
 
-//Connect to mongoDB
+//Kapcsolodás az adatbázishoz
 mongoose
-  .connect(db)
-  .then(() => console.log("MongoDB connected"))
+  .connect(dataBase)
+  .then(() => console.log("Database Connected"))
   .catch(err => console.log(err));
 
-//Passport middleware
+//Passport
 app.use(passport.initialize());
 
-//Passport Config
+//Passport beallitás
 require("./config/passport")(passport);
 
 //Use routes

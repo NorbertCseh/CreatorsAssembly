@@ -1,22 +1,22 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import TextFieldGroup from "../common/TextFildGroup";
-import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { addExperience } from "../../actions/profileActions";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import TextFieldGroup from '../common/TextFieldGroup';
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addExperience } from '../../actions/profileActions';
 
 class AddExperience extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      company: "",
-      title: "",
-      location: "",
-      from: "",
-      to: "",
+      company: '',
+      title: '',
+      location: '',
+      from: '',
+      to: '',
       current: false,
-      description: "",
+      description: '',
       errors: {},
       disabled: false
     };
@@ -34,6 +34,7 @@ class AddExperience extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+
     const expData = {
       company: this.state.company,
       title: this.state.title,
@@ -43,6 +44,7 @@ class AddExperience extends Component {
       current: this.state.current,
       description: this.state.description
     };
+
     this.props.addExperience(expData, this.props.history);
   }
 
@@ -59,18 +61,18 @@ class AddExperience extends Component {
 
   render() {
     const { errors } = this.state;
+
     return (
       <div className="add-experience">
-        <div className="conatiner">
+        <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <Link to="/dashboard" className="btn btn-dark">
+              <Link to="/dashboard" className="btn btn-light">
                 Go Back
               </Link>
-              <div className="hi display-4 text-center">Add Experience</div>
+              <h1 className="display-4 text-center">Add Experience</h1>
               <p className="lead text-center">
-                Add any job or position that you had have in the past or
-                current.
+                Add any job or position that you have had in the past or current
               </p>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
@@ -110,7 +112,7 @@ class AddExperience extends Component {
                   value={this.state.to}
                   onChange={this.onChange}
                   error={errors.to}
-                  disabled={this.state.disabled ? "disabled" : ""}
+                  disabled={this.state.disabled ? 'disabled' : ''}
                 />
                 <div className="form-check mb-4">
                   <input
@@ -132,7 +134,7 @@ class AddExperience extends Component {
                   value={this.state.description}
                   onChange={this.onChange}
                   error={errors.description}
-                  info="Tell us about the position"
+                  info="Tell us about the the position"
                 />
                 <input
                   type="submit"
@@ -149,17 +151,16 @@ class AddExperience extends Component {
 }
 
 AddExperience.propTypes = {
+  addExperience: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  addExperience: PropTypes.func.isRequired,
   profile: state.profile,
   errors: state.errors
 });
 
-export default connect(
-  mapStateToProps,
-  { addExperience }
-)(withRouter(AddExperience));
+export default connect(mapStateToProps, { addExperience })(
+  withRouter(AddExperience)
+);
