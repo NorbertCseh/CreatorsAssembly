@@ -1,14 +1,11 @@
-import React from 'react';
-import spinner from './spinner.gif';
+import React from "react";
 
 export default () => {
   return (
-    <div>
-      <img
-        src={spinner}
-        style={{ width: '200px', margin: 'auto', display: 'block' }}
-        alt="Loading..."
-      />
+    <div className="column is-half is-offset-one-quarter">
+      <progress class="progress is-small is-dark" max="100">
+        15%
+      </progress>
     </div>
   );
 };

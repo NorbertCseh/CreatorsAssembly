@@ -84,9 +84,8 @@ class Navbar extends Component {
               {" "}
               Developers
             </Link>
-
-            {isAuthenticated ? authLinks : guestLinks}
           </div>
+          {isAuthenticated ? authLinks : guestLinks}
         </div>
       </nav>
     );
