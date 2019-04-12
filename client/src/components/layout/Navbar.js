@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { logoutUser } from '../../actions/authActions';
-import { clearCurrentProfile } from '../../actions/profileActions';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions";
+import { clearCurrentProfile } from "../../actions/profileActions";
 
 class Navbar extends Component {
   onLogoutClick(e) {
@@ -16,75 +16,75 @@ class Navbar extends Component {
     const { isAuthenticated, user } = this.props.auth;
 
     const authLinks = (
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <Link className="nav-link" to="/feed">
-            Post Feed
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/dashboard">
-            Dashboard
-          </Link>
-        </li>
-        <li className="nav-item">
-          <a
-            href=""
-            onClick={this.onLogoutClick.bind(this)}
-            className="nav-link"
-          >
-            <img
-              className="rounded-circle"
-              src={user.avatar}
-              alt={user.name}
-              style={{ width: '25px', marginRight: '5px' }}
-              title="You must have a Gravatar connected to your email to display an image"
-            />{' '}
-            Logout
-          </a>
-        </li>
-      </ul>
+      <div>
+        <Link className="navbar-item" to="/feed">
+          My Feed
+        </Link>
+        <Link className="navbar-item" to="/dashboard">
+          My Profile
+        </Link>
+        <a
+          href=""
+          onClick={this.onLogoutClick.bind(this)}
+          className="navbar-item"
+        >
+          <img
+            className="rounded-circle"
+            src={user.avatar}
+            alt={user.name}
+            style={{ width: "25px", marginRight: "5px" }}
+          />{" "}
+          Logout
+        </a>
+      </div>
     );
 
     const guestLinks = (
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <Link className="nav-link" to="/register">
-            Sign Up
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/login">
-            Login
-          </Link>
-        </li>
-      </ul>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <Link className="button is-primary" to="/register">
+              Sign Up
+            </Link>
+            <Link className="button is-light" to="/login">
+              Login
+            </Link>
+          </div>
+        </div>
+      </div>
     );
 
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
-        <div className="container">
-          <Link className="navbar-brand" to="/">
-            DevConnector
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#mobile-nav"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
+      <nav className="navbar">
+        <div className="navbar-brand">
+          <a className="navbar-item" href="/">
+            <img
+              src="https://bulma.io/images/bulma-logo.png"
+              width="112"
+              height="28"
+            />
+          </a>
 
-          <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/profiles">
-                  {' '}
-                  Developers
-                </Link>
-              </li>
-            </ul>
+          <a
+            role="button"
+            className="navbar-burger burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+          >
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </a>
+        </div>
+
+        <div className="navbar-menu" id="navbarBasicExample">
+          <div className="navbar-start">
+            <Link className="navbar-item" to="/profiles">
+              {" "}
+              Developers
+            </Link>
+
             {isAuthenticated ? authLinks : guestLinks}
           </div>
         </div>
@@ -102,6 +102,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { logoutUser, clearCurrentProfile })(
-  Navbar
-);
+export default connect(
+  mapStateToProps,
+  { logoutUser, clearCurrentProfile }
+)(Navbar);
