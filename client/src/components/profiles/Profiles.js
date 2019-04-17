@@ -27,11 +27,11 @@ class Profiles extends Component {
     }
 
     return (
-      <div className="column">
-        <p>
-          <strong>Registered crators</strong>
-        </p>
-        {profileItems}
+      <div className="container">
+        <h4 className="title is-4">
+          <strong>Registered creators</strong>
+        </h4>
+        <div className="container">{profileItems}</div>
       </div>
     );
   }

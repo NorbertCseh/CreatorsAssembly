@@ -16,37 +16,36 @@ class Navbar extends Component {
     const { isAuthenticated, user } = this.props.auth;
 
     const authLinks = (
-      <div>
-        <Link className="navbar-item" to="/feed">
-          My Feed
-        </Link>
-        <Link className="navbar-item" to="/dashboard">
-          My Profile
-        </Link>
-        <a
-          href=""
-          onClick={this.onLogoutClick.bind(this)}
-          className="navbar-item"
-        >
-          <img
-            className="rounded-circle"
-            src={user.avatar}
-            alt={user.name}
-            style={{ width: "25px", marginRight: "5px" }}
-          />{" "}
-          Logout
-        </a>
+      <div className="navbar-item">
+        <div className="buttons">
+          <Link className="button is-primary has-text-black" to="/feed">
+            My Feed
+          </Link>
+          <Link className="button is-primary has-text-black" to="/dashboard">
+            My Profile
+          </Link>
+          <a
+            href=""
+            onClick={this.onLogoutClick.bind(this)}
+            className="button is-danger"
+          >
+            <figure className="image is-24x24">
+              <img className="is-rounded" src={user.avatar} alt={user.name} />
+            </figure>{" "}
+            Logout
+          </a>
+        </div>
       </div>
     );
 
     const guestLinks = (
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <Link className="button is-primary" to="/register">
+      <div className="navbar-end">
+        <div className="navbar-item">
+          <div className="buttons">
+            <Link className="button is-primary has-text-black" to="/register">
               Sign Up
             </Link>
-            <Link className="button is-light" to="/login">
+            <Link className="button is-light has-text-black" to="/login">
               Login
             </Link>
           </div>
@@ -55,7 +54,7 @@ class Navbar extends Component {
     );
 
     return (
-      <nav className="navbar">
+      <nav className="navbar is-dark">
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
             <img
@@ -80,10 +79,12 @@ class Navbar extends Component {
 
         <div className="navbar-menu" id="navbarBasicExample">
           <div className="navbar-start">
-            <Link className="navbar-item" to="/profiles">
-              {" "}
-              Developers
-            </Link>
+            <div className="buttons">
+              <Link className="button is-primary has-text-black" to="/profiles">
+                {" "}
+                Developers
+              </Link>
+            </div>
           </div>
           {isAuthenticated ? authLinks : guestLinks}
         </div>

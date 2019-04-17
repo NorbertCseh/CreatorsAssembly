@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { getCurrentProfile, deleteAccount } from '../../actions/profileActions';
-import Spinner from '../common/Spinner';
-import ProfileActions from './ProfileActions';
-import Experience from './Experience';
-import Education from './Education';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getCurrentProfile, deleteAccount } from "../../actions/profileActions";
+import Spinner from "../common/Spinner";
+import ProfileActions from "./ProfileActions";
+import Experience from "./Experience";
+import Education from "./Education";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -30,28 +30,33 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div>
-            <p className="lead text-muted">
+            <h5 className="title is-5">
               Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
-            </p>
+            </h5>
             <ProfileActions />
-            <Experience experience={profile.experience} />
-            <Education education={profile.education} />
-            <div style={{ marginBottom: '60px' }} />
-            <button
-              onClick={this.onDeleteClick.bind(this)}
-              className="btn btn-danger"
-            >
-              Delete My Account
-            </button>
+            <div className="tile">
+              <div class="tile is-parent is-vertical">
+                <article class="tile is-child ">
+                  <Experience experience={profile.experience} />
+                </article>
+              </div>
+            </div>
+            <div className="tile">
+              <div class="tile is-parent is-vertical">
+                <article class="tile is-child ">
+                  <Education education={profile.education} />
+                </article>
+              </div>
+            </div>
           </div>
         );
       } else {
         // User is logged in but has no profile
         dashboardContent = (
           <div>
-            <p className="lead text-muted">Welcome {user.name}</p>
+            <h3 className="title is-3">Welcome {user.name}</h3>
             <p>You have not yet setup a profile, please add some info</p>
-            <Link to="/create-profile" className="btn btn-lg btn-info">
+            <Link to="/create-profile" className="button is-link">
               Create Profile
             </Link>
           </div>
@@ -60,12 +65,18 @@ class Dashboard extends Component {
     }
 
     return (
-      <div className="dashboard">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <h1 className="display-4">Dashboard</h1>
-              {dashboardContent}
+      <div className="container">
+        <h3 className="title is-3">Dashboard</h3>
+        {dashboardContent}
+        <div className="level">
+          <div className="level-item level-right">
+            <div className="buttons">
+              <button
+                onClick={this.onDeleteClick.bind(this)}
+                className="button is-danger"
+              >
+                Delete My Account
+              </button>
             </div>
           </div>
         </div>
@@ -86,6 +97,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
-  Dashboard
-);
+export default connect(
+  mapStateToProps,
+  { getCurrentProfile, deleteAccount }
+)(Dashboard);

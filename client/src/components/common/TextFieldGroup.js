@@ -30,7 +30,7 @@ const TextFieldGroup = ({
           onChange={onChange}
           disabled={disabled}
         />
-        {info && <small className="help is-success">{info}</small>}
+        {info && <small className="help is-info">{info}</small>}
         {error && <div className="help is-danger">{error}</div>}
       </div>
     </div>

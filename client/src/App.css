@@ -1,6 +1,7 @@
-/* img {
+/*img {
   width: 100%;
 }
+ 
 
 .landing {
   position: relative;
@@ -41,4 +42,27 @@
 .has-bg-img {
   background: url("./img/landing2.jpg") center center;
   background-size: cover;
+}
+
+/* * {
+  outline: solid 0.25rem rgba(94, 110, 255, 0.5);
+} */
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid rgb(0, 0, 0);
+  margin: 1em 0;
+  padding: 0;
+}
+
+body {
+  background-color: whitesmoke;
 }

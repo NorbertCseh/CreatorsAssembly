@@ -15,13 +15,13 @@ class Landing extends Component {
       <section className="hero is-dark is-fullheight has-bg-img">
         <div className="hero-body">
           <div className="container">
-            <h1 className="title">
+            <h1 className="title is-1">
               <strong>Creators Assembly</strong>, connect and find creators
               around you!
             </h1>
             <hr />
             <div class="buttons">
-              <Link className="button is-primary" to="/register">
+              <Link className="button is-primary has-text-black" to="/register">
                 Sign Up
               </Link>
               <Link className="button is-light" to="/login">

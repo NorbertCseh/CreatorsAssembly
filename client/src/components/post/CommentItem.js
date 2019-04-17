@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { deleteComment } from '../../actions/postActions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { deleteComment } from "../../actions/postActions";
 
 class CommentItem extends Component {
   onDeleteClick(postId, commentId) {
@@ -12,33 +12,34 @@ class CommentItem extends Component {
     const { comment, postId, auth } = this.props;
 
     return (
-      <div className="card card-body mb-3">
-        <div className="row">
-          <div className="col-md-2">
-            <a href="profile.html">
-              <img
-                className="rounded-circle d-none d-md-block"
-                src={comment.avatar}
-                alt=""
-              />
-            </a>
-            <br />
-            <p className="text-center">{comment.name}</p>
-          </div>
-          <div className="col-md-10">
-            <p className="lead">{comment.text}</p>
-            {comment.user === auth.user.id ? (
-              <button
-                onClick={this.onDeleteClick.bind(this, postId, comment._id)}
-                type="button"
-                className="btn btn-danger mr-1"
-              >
-                <i className="fas fa-times" />
-              </button>
-            ) : null}
+      <article className="media">
+        <figure className="media-left">
+          <p class="image is-64x64">
+            <img src={comment.avatar} alt="" />
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <div className="level">
+              <div className="level-item level-left">
+                <strong>{comment.name}</strong>
+              </div>
+            </div>
+            <div className="level">
+              <div className="level-item level-left">{comment.text}</div>
+            </div>
           </div>
         </div>
-      </div>
+        {comment.user === auth.user.id ? (
+          <div className="media-right">
+            <button
+              onClick={this.onDeleteClick.bind(this, postId, comment._id)}
+              type="button"
+              className="delete"
+            />
+          </div>
+        ) : null}
+      </article>
     );
   }
 }
@@ -54,4 +55,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { deleteComment })(CommentItem);
+export default connect(
+  mapStateToProps,
+  { deleteComment }
+)(CommentItem);

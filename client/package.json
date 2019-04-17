@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "bulma-pageloader": "^2.1.0",
     "classnames": "^2.2.6",
     "jquery": "^3.4.0",
     "jwt-decode": "^2.2.0",
@@ -12,6 +13,8 @@
     "popper": "^1.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-helmet": "^5.2.0",
+    "react-image": "^2.1.1",
     "react-moment": "^0.8.4",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",

@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import ProfileHeader from './ProfileHeader';
-import ProfileAbout from './ProfileAbout';
-import ProfileCreds from './ProfileCreds';
-import ProfileGithub from './ProfileGithub';
-import Spinner from '../common/Spinner';
-import { getProfileByHandle } from '../../actions/profileActions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import ProfileHeader from "./ProfileHeader";
+import ProfileAbout from "./ProfileAbout";
+import ProfileCreds from "./ProfileCreds";
+import ProfileGithub from "./ProfileGithub";
+import Spinner from "../common/Spinner";
+import { getProfileByHandle } from "../../actions/profileActions";
 
 class Profile extends Component {
   componentDidMount() {
@@ -18,7 +18,7 @@ class Profile extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.profile.profile === null && this.props.profile.loading) {
-      this.props.history.push('/not-found');
+      this.props.history.push("/not-found");
     }
   }
 
@@ -31,36 +31,56 @@ class Profile extends Component {
     } else {
       profileContent = (
         <div>
-          <div className="row">
-            <div className="col-md-6">
-              <Link to="/profiles" className="btn btn-light mb-3 float-left">
-                Back To Profiles
-              </Link>
+          <div className="level">
+            <div className="level-right">
+              <div className="level-item">
+                <Link
+                  to="/profiles"
+                  className="button is-danger has-text-black"
+                >
+                  Back
+                </Link>
+              </div>
             </div>
-            <div className="col-md-6" />
           </div>
-          <ProfileHeader profile={profile} />
-          <ProfileAbout profile={profile} />
-          <ProfileCreds
-            education={profile.education}
-            experience={profile.experience}
-          />
-          {profile.githubusername ? (
-            <ProfileGithub username={profile.githubusername} />
-          ) : null}
+          <div class="tile is-ancestor">
+            <div class="tile is-vertical is-8">
+              <div class="tile">
+                <div class="tile is-parent is-vertical">
+                  <article class="tile is-child notification is-primary has-text-centered has-text-black">
+                    <ProfileHeader profile={profile} />
+                  </article>
+                </div>
+                <div class="tile is-parent">
+                  <article class="tile is-child notification is-primary">
+                    {profile.githubusername ? (
+                      <ProfileGithub username={profile.githubusername} />
+                    ) : null}
+                  </article>
+                </div>
+              </div>
+              <div class="tile is-parent">
+                <article class="tile is-child notification is-primary">
+                  <ProfileAbout profile={profile} />
+                </article>
+              </div>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child notification is-primary">
+                <div class="content">
+                  <ProfileCreds
+                    education={profile.education}
+                    experience={profile.experience}
+                  />
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
       );
     }
 
-    return (
-      <div className="profile">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">{profileContent}</div>
-          </div>
-        </div>
-      </div>
-    );
+    return <div className="">{profileContent}</div>;
   }
 }
 
@@ -73,4 +93,7 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, { getProfileByHandle })(Profile);
+export default connect(
+  mapStateToProps,
+  { getProfileByHandle }
+)(Profile);

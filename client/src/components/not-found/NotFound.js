@@ -1,10 +1,9 @@
-import React from 'react';
+import React from "react";
 
 export default () => {
   return (
-    <div>
-      <h1 className="display-4">Page Not Found</h1>
-      <p>Sorry, this page does not exist</p>
+    <div className="hero is-fullheight">
+      <h1 className="title is-1 has-text-centered">No page found</h1>
     </div>
   );
 };
