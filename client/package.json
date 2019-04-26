@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "bulma": "^0.7.4",
     "bulma-pageloader": "^2.1.0",
     "classnames": "^2.2.6",
     "jquery": "^3.4.0",
@@ -18,9 +19,10 @@
     "react-moment": "^0.8.4",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.5",
+    "react-scripts": "^2.1.8",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.19.0"
   },
   "scripts": {
     "start": "react-scripts start",

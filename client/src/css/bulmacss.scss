@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+$dark-blue: #5a564f;
+$yellow: #ead2ac;
+$white: #fdfdff;
+$blue: #285b7c;
+$light-red: #db5d3a;
+$grey: #c8d1af;
+
+$primary: $light-red;
+$info: $blue;
+$link: $light-red;
+$dark: $dark-blue;
+$danger: $blue;
+
+// // Set your brand colors
+// $purple: #8a4d76;
+// $pink: #fa7c91;
+// $brown: #757763;
+// $beige-light: #d0d1cd;
+// $beige-lighter: #eff0eb;
+
+// // Update Bulma's global variables
+// $family-sans-serif: "Nunito", sans-serif;
+// $grey-dark: $brown;
+// $grey-light: $beige-light;
+// $primary: $purple;
+// $link: $pink;
+// $widescreen-enabled: false;
+// $fullhd-enabled: false;
+
+.has-bg-img {
+  background: url("../img/landing2.jpg") center center;
+  background-size: cover;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid rgb(0, 0, 0);
+  margin: 1em 0;
+  padding: 0;
+}
+
+body {
+  background-color: $white;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+@import "../../node_modules/bulma/bulma.sass";

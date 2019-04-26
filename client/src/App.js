@@ -8,25 +8,24 @@ import { clearCurrentProfile } from "./actions/profileActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import PrivateRoute from "./components/common/PrivateRoute";
+import PrivateRoute from "./components/form-elements/PrivateRoute";
 
 import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
-import Register from "./components/auth/Register";
-import Login from "./components/auth/Login";
-import Dashboard from "./components/dashboard/Dashboard";
+import Register from "./components/authentication/Register";
+import Login from "./components/authentication/Login";
+import Dashboard from "./components/my-profile/Dashboard";
 import CreateProfile from "./components/create-profile/CreateProfile";
-import EditProfile from "./components/edit-profile/EditProfile";
+import EditProfile from "./components/edit/EditProfile";
 import AddExperience from "./components/add-credentials/AddExperience";
 import AddEducation from "./components/add-credentials/AddEducation";
-import Profiles from "./components/profiles/Profiles";
-import Profile from "./components/profile/Profile";
-import Posts from "./components/posts/Posts";
-import Post from "./components/post/Post";
-import NotFound from "./components/not-found/NotFound";
+import Profiles from "./components/all-profiles/Profiles";
+import Profile from "./components/single-profile/Profile";
+import Posts from "./components/all-posts/Posts";
+import Post from "./components/single-post/Post";
+import NotFound from "./components/page-not found/NotFound";
 
-import "./App.css";
+import "./css/bulmacss.css";
 import "./hamburger.js";
 
 // Check for token
@@ -102,7 +101,6 @@ class App extends Component {
               </Switch>
               <Route exact path="/not-found" component={NotFound} />
             </section>
-            <Footer />
           </div>
         </Router>
       </Provider>

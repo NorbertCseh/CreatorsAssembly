@@ -29,9 +29,6 @@ class Navbar extends Component {
             onClick={this.onLogoutClick.bind(this)}
             className="button is-danger"
           >
-            <figure className="image is-24x24">
-              <img className="is-rounded" src={user.avatar} alt={user.name} />
-            </figure>{" "}
             Logout
           </a>
         </div>
