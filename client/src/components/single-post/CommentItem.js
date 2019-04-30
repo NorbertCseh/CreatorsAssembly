@@ -14,12 +14,12 @@ class CommentItem extends Component {
     return (
       <article className="media">
         <figure className="media-left">
-          <p class="image is-64x64">
+          <p className="image is-64x64">
             <img src={comment.avatar} alt="" />
           </p>
         </figure>
-        <div class="media-content">
-          <div class="content">
+        <div className="media-content">
+          <div className="content">
             <div className="level">
               <div className="level-item level-left">
                 <strong>{comment.name}</strong>

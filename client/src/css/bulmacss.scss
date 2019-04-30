@@ -1,38 +1,19 @@
 @charset "utf-8";
 
-$dark-blue: #5a564f;
-$yellow: #ead2ac;
-$white: #fdfdff;
-$blue: #285b7c;
-$light-red: #db5d3a;
-$grey: #c8d1af;
+// $dark-blue: #2d2d2d;
+// $yellow: #ead2ac;
+// $white: #fdfdff;
+// $blue: #285b7c;
+// $light-red: #db5d3a;
+// $grey: #c8d1af;
+// $lighter-black: #1c1c1c;
 
-$primary: $light-red;
-$info: $blue;
-$link: $light-red;
-$dark: $dark-blue;
-$danger: $blue;
-
-// // Set your brand colors
-// $purple: #8a4d76;
-// $pink: #fa7c91;
-// $brown: #757763;
-// $beige-light: #d0d1cd;
-// $beige-lighter: #eff0eb;
-
-// // Update Bulma's global variables
-// $family-sans-serif: "Nunito", sans-serif;
-// $grey-dark: $brown;
-// $grey-light: $beige-light;
-// $primary: $purple;
-// $link: $pink;
-// $widescreen-enabled: false;
-// $fullhd-enabled: false;
-
-.has-bg-img {
-  background: url("../img/landing2.jpg") center center;
-  background-size: cover;
-}
+// $primary: $light-red;
+// $info: $blue;
+// $link: $light-red;
+// $dark: $dark-blue;
+// $danger: $blue;
+// $black: $lighter-black;
 
 .center {
   display: flex;
@@ -50,10 +31,42 @@ hr {
 }
 
 body {
-  background-color: $white;
+  background-color: white;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+/* loading dots */
+
+.loading {
+  color: black;
+  font: 300 4em/150% Impact;
+  text-align: center;
+}
+
+.loading:after {
+  content: " .";
+  animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    color: rgba(0, 0, 0, 0);
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    color: black;
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    text-shadow: 0.25em 0 0 black, 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  80%,
+  100% {
+    text-shadow: 0.25em 0 0 black, 0.5em 0 0 black;
+  }
 }
 
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,700");

@@ -282,8 +282,8 @@ class CreateProfile extends Component {
             </div>
           </div>
           {socialInputs}
-          <div class="control">
-            <button type="submit" class="button is-link has-text-black">
+          <div className="control">
+            <button type="submit" className="button is-link has-text-black">
               Submit
             </button>
           </div>

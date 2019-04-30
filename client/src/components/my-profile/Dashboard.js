@@ -35,15 +35,15 @@ class Dashboard extends Component {
             </h5>
             <ProfileActions />
             <div className="tile">
-              <div class="tile is-parent is-vertical">
-                <article class="tile is-child ">
+              <div className="tile is-parent is-vertical">
+                <article className="tile is-child ">
                   <Experience experience={profile.experience} />
                 </article>
               </div>
             </div>
             <div className="tile">
-              <div class="tile is-parent is-vertical">
-                <article class="tile is-child ">
+              <div className="tile is-parent is-vertical">
+                <article className="tile is-child ">
                   <Education education={profile.education} />
                 </article>
               </div>

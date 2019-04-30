@@ -12,15 +12,15 @@ class Landing extends Component {
 
   render() {
     return (
-      <section className="hero is-dark is-fullheight has-bg-img">
+      <section className="hero is-black is-fullheight  has-bg-img">
         <div className="hero-body">
           <div className="container">
             <h1 className="title is-1">
-              <strong>Creators Assembly</strong>, connect and find creators
-              around you!
+              <strong>Creator Finder</strong>, find and connect creators around
+              you!
             </h1>
             <hr />
-            <div class="buttons">
+            <div className="buttons">
               <Link className="button is-primary has-text-black" to="/register">
                 Sign Up
               </Link>

@@ -134,8 +134,8 @@ class AddEducation extends Component {
             error={errors.description}
             info="Tell us what you learned!"
           />
-          <div class="control">
-            <button type="submit" class="button is-link has-text-black">
+          <div className="control">
+            <button type="submit" className="button is-link has-text-black">
               Submit
             </button>
           </div>

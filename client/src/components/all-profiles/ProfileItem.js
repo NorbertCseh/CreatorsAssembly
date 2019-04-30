@@ -13,18 +13,18 @@ class ProfileItem extends Component {
           <div className="card-content">
             <div className="columns">
               <div className="column">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-96x96">
+                <div className="media">
+                  <div className="media-left">
+                    <figure className="image is-96x96">
                       <img
                         src={profile.user.avatar}
-                        alt="Placeholder image"
+                        alt="Profile"
                         className="is-rounded"
                       />
                     </figure>
                   </div>
-                  <div class="media-content">
-                    <p class="title is-4">{profile.user.name}</p>
+                  <div className="media-content">
+                    <p className="title is-4">{profile.user.name}</p>
                   </div>
                 </div>
                 <div className="content">

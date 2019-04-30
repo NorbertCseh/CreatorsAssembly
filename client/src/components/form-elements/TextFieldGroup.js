@@ -15,10 +15,10 @@ const TextFieldGroup = ({
 }) => {
   return (
     <div className="field">
-      <label class="label">
+      <label className="label">
         {name.charAt(0).toUpperCase() + name.slice(1)}
       </label>
-      <div class="control">
+      <div className="control">
         <input
           type={type}
           className={classnames("input", {

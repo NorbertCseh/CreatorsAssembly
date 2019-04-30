@@ -116,7 +116,7 @@ class AddExperience extends Component {
             disabled={this.state.disabled ? "disabled" : ""}
           />
           <div className="field">
-            <div class="control">
+            <div className="control">
               <input
                 type="checkbox"
                 className="checkbox"
@@ -139,8 +139,8 @@ class AddExperience extends Component {
             error={errors.description}
             info="Tell us what did you do there!"
           />
-          <div class="control">
-            <button type="submit" class="button is-link has-text-black">
+          <div className="control">
+            <button type="submit" className="button is-link has-text-black">
               Submit
             </button>
           </div>

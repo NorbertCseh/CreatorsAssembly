@@ -23,11 +23,11 @@ class Experience extends Component {
           )}
         </td>
         <td>
-          <a onClick={this.onDeleteClick.bind(this, exp._id)}>
-            <span class="icon">
-              <i class="fas fa-trash" />
+          <button onClick={this.onDeleteClick.bind(this, exp._id)}>
+            <span className="icon">
+              <i className="fas fa-trash" />
             </span>
-          </a>
+          </button>
         </td>
       </tr>
     ));
@@ -43,7 +43,7 @@ class Experience extends Component {
               <th />
             </tr>
           </thead>
-          {experience}
+          <tbody>{experience}</tbody>
         </table>
       </div>
     );

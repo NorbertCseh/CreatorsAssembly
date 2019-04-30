@@ -10,7 +10,7 @@ const SelectListGroup = ({ name, value, error, info, onChange, options }) => {
   ));
   return (
     <div className="field">
-      <label class="label">
+      <label className="label">
         {name.charAt(0).toUpperCase() + name.slice(1)}
       </label>
       <div className="select">

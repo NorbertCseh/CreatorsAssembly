@@ -13,7 +13,7 @@ class Navbar extends Component {
   }
 
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { isAuthenticated } = this.props.auth;
 
     const authLinks = (
       <div className="navbar-item">
@@ -24,13 +24,13 @@ class Navbar extends Component {
           <Link className="button is-primary has-text-black" to="/dashboard">
             My Profile
           </Link>
-          <a
+          <button
             href=""
             onClick={this.onLogoutClick.bind(this)}
             className="button is-danger"
           >
             Logout
-          </a>
+          </button>
         </div>
       </div>
     );
@@ -54,24 +54,18 @@ class Navbar extends Component {
       <nav className="navbar is-dark">
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
-            <img
-              src="https://bulma.io/images/bulma-logo.png"
-              width="112"
-              height="28"
-            />
+            Creator Finder
           </a>
 
-          <a
-            role="button"
+          <button
             className="navbar-burger burger"
             aria-label="menu"
             aria-expanded="false"
-            data-target="navbarBasicExample"
           >
             <span aria-hidden="true" />
             <span aria-hidden="true" />
             <span aria-hidden="true" />
-          </a>
+          </button>
         </div>
 
         <div className="navbar-menu" id="navbarBasicExample">

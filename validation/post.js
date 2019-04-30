@@ -6,8 +6,10 @@ module.exports = function validatePostInput(data) {
 
   data.text = !isEmpty(data.text) ? data.text : "";
 
-  //Minimum 10 és maximum 500 karakter lehet benne
-  if (!Validator.isLength(data.text, { min: 10, max: 500 })) {
+  if (!Validator.isLength(data.text, {
+      min: 10,
+      max: 500
+    })) {
     errors.text = "Post must be between 10 and 500 characters";
   }
 
