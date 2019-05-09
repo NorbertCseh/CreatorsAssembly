@@ -1,5 +1,5 @@
 const Validator = require("validator");
-const isEmpty = require("./is-empty");
+const isEmpty = require("./Empty");
 
 module.exports = function validateProfileInput(data) {
   let errors = {};

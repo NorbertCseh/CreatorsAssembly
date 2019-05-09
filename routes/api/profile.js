@@ -11,10 +11,6 @@ const Profile = require("../../models/Profile");
 
 const User = require("../../models/User");
 
-router.get("/test", (req, res) => res.json({
-  msg: "Profile Works!"
-}));
-
 router.get(
   "/",
   passport.authenticate("jwt", {
@@ -23,8 +19,8 @@ router.get(
   (req, res) => {
     const errors = {};
     Profile.findOne({
-        user: req.user.id
-      })
+      user: req.user.id
+    })
       .populate("user", ["name", "avatar"])
       .then(profile => {
         if (!profile) {
@@ -48,17 +44,19 @@ router.get("/all", (req, res) => {
       }
       res.json(profiles);
     })
-    .catch(err => res.status(404).json({
-      profiles: "There are no profiles!"
-    }));
+    .catch(err =>
+      res.status(404).json({
+        profiles: "There are no profiles!"
+      })
+    );
 });
 
 router.get("/handle/:handle", (req, res) => {
   const errors = {};
 
   Profile.findOne({
-      handle: req.params.handle
-    })
+    handle: req.params.handle
+  })
     .populate("user", ["name", "avatar"])
     .then(profile => {
       if (!profile) {
@@ -75,8 +73,8 @@ router.get("/user/:user_id", (req, res) => {
   const errors = {};
 
   Profile.findOne({
-      user: req.params.user_id
-    })
+    user: req.params.user_id
+  })
     .populate("user", ["name", "avatar"])
     .then(profile => {
       if (!profile) {
@@ -99,10 +97,7 @@ router.post(
     session: false
   }),
   (req, res) => {
-    const {
-      errors,
-      isValid
-    } = validateProfileInput(req.body);
+    const { errors, isValid } = validateProfileInput(req.body);
 
     if (!isValid) {
       return res.status(400).json(errors);
@@ -133,14 +128,17 @@ router.post(
       user: req.user.id
     }).then(profile => {
       if (profile) {
-        // Update
-        Profile.findOneAndUpdate({
-          user: req.user.id
-        }, {
-          $set: profileFields
-        }, {
-          new: true
-        }).then(profile => res.json(profile));
+        Profile.findOneAndUpdate(
+          {
+            user: req.user.id
+          },
+          {
+            $set: profileFields
+          },
+          {
+            new: true
+          }
+        ).then(profile => res.json(profile));
       } else {
         Profile.findOne({
           handle: profileFields.handle
@@ -162,10 +160,7 @@ router.post(
     session: false
   }),
   (req, res) => {
-    const {
-      errors,
-      isValid
-    } = validateExperienceInput(req.body);
+    const { errors, isValid } = validateExperienceInput(req.body);
     if (!isValid) {
       return res.status(400).json(errors);
     }
@@ -193,10 +188,7 @@ router.post(
     session: false
   }),
   (req, res) => {
-    const {
-      errors,
-      isValid
-    } = validateEducationInput(req.body);
+    const { errors, isValid } = validateEducationInput(req.body);
     if (!isValid) {
       return res.status(400).json(errors);
     }
@@ -226,8 +218,8 @@ router.delete(
   }),
   (req, res) => {
     Profile.findOne({
-        user: req.user.id
-      })
+      user: req.user.id
+    })
       .then(profile => {
         const removeIndex = profile.experience
           .map(item => item.id)
@@ -246,8 +238,8 @@ router.delete(
   }),
   (req, res) => {
     Profile.findOne({
-        user: req.user.id
-      })
+      user: req.user.id
+    })
       .then(profile => {
         const removeIndex = profile.education
           .map(item => item.id)
