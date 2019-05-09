@@ -1,20 +1,5 @@
 @charset "utf-8";
 
-// $dark-blue: #2d2d2d;
-// $yellow: #ead2ac;
-// $white: #fdfdff;
-// $blue: #285b7c;
-// $light-red: #db5d3a;
-// $grey: #c8d1af;
-// $lighter-black: #1c1c1c;
-
-// $primary: $light-red;
-// $info: $blue;
-// $link: $light-red;
-// $dark: $dark-blue;
-// $danger: $blue;
-// $black: $lighter-black;
-
 .center {
   display: flex;
   justify-content: center;
@@ -34,7 +19,6 @@ body {
   background-color: white;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
 
 /* loading dots */
