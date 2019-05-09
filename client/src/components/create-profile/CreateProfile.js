@@ -127,6 +127,7 @@ class CreateProfile extends Component {
       );
     }
 
+    // Select options for status
     const options = [
       { label: "Job Status", value: 0 },
       { label: "Developer", value: "Developer" },

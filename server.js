@@ -1,5 +1,8 @@
 const express = require("express");
 const path = require("path");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const passport = require("passport");
 
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
@@ -7,19 +10,23 @@ const posts = require("./routes/api/posts");
 
 const app = express();
 
-const bodyParser = require("body-parser");
+//Body parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//Adatbázis konfiguráció
 const dataBase = require("./config/keys").mongoURI;
-const mongoose = require("mongoose");
+
+//Kapcsolodás az adatbázishoz
 mongoose
   .connect(dataBase)
   .then(() => console.log("Database Connected"))
   .catch(err => console.log(err));
 
-const passport = require("passport");
+//Passport
 app.use(passport.initialize());
+
+//Passport beallitás
 require("./config/passport")(passport);
 
 app.use("./api/users", users);

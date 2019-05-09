@@ -9,8 +9,15 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 
+router.get("/test", (req, res) => res.json({
+  msg: "Users Works"
+}));
+
 router.post("/register", (req, res) => {
-  const { errors, isValid } = validateRegisterInput(req.body);
+  const {
+    errors,
+    isValid
+  } = validateRegisterInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -48,10 +55,13 @@ router.post("/register", (req, res) => {
     }
   });
 });
-
 router.post("/login", (req, res) => {
-  const { errors, isValid } = validateLoginInput(req.body);
+  const {
+    errors,
+    isValid
+  } = validateLoginInput(req.body);
 
+  // Check Validation
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -71,11 +81,10 @@ router.post("/login", (req, res) => {
           id: user.id,
           name: user.name,
           avatar: user.avatar
-        };
+        }; // Create JWT Payload
         jwt.sign(
           payload,
-          keys.secretOrKey,
-          {
+          keys.secretOrKey, {
             expiresIn: 3600
           },
           (err, token) => {
@@ -92,7 +101,6 @@ router.post("/login", (req, res) => {
     });
   });
 });
-
 router.get(
   "/current",
   passport.authenticate("jwt", {

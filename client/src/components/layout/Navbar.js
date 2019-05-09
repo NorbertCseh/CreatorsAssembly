@@ -73,7 +73,7 @@ class Navbar extends Component {
             <div className="buttons">
               <Link className="button is-primary has-text-black" to="/profiles">
                 {" "}
-                Creators
+                Developers
               </Link>
             </div>
           </div>
