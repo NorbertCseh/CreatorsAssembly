@@ -29,9 +29,9 @@ app.use(passport.initialize());
 //Passport beallitás
 require("./config/passport")(passport);
 
-app.use("./api/users", users);
-app.use("./api/profile", profile);
-app.use("./api/posts", posts);
+app.use("/api/users", users);
+app.use("/api/profile", profile);
+app.use("/api/posts", posts);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("./client/build"));

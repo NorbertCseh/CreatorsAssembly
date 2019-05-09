@@ -51,34 +51,36 @@ class Login extends Component {
 
   render = () => {
     let errors;
-    ({errors} = this.state);
+    ({ errors } = this.state);
 
-    return <div className="column is-half is-offset-one-quarter">
-      <form onSubmit={this.submit}>
-        <TextFieldGroup
+    return (
+      <div className="column is-half is-offset-one-quarter">
+        <form onSubmit={this.submit}>
+          <TextFieldGroup
             placeholder="Email Address"
             name="email"
             type="email"
             value={this.state.email}
             onChange={this.change}
             error={errors.email}
-        />
+          />
 
-        <TextFieldGroup
+          <TextFieldGroup
             placeholder="Password"
             name="password"
             type="password"
             value={this.state.password}
             onChange={this.change}
             error={errors.password}
-        />
-        <div className="control">
-          <button type="submit" className="button is-primary">
-            Login
-          </button>
-        </div>
-      </form>
-    </div>;
+          />
+          <div className="control">
+            <button type="submit" className="button is-primary">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    );
   };
 }
 
@@ -95,7 +97,7 @@ mapStateToProps = state => ({
 });
 
 let exportValue = connect(
-    mapStateToProps,
-    { loginUser }
+  mapStateToProps,
+  { loginUser }
 )(Login);
 export default exportValue;
