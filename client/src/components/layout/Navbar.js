@@ -58,10 +58,13 @@ class Navbar extends Component {
           </a>
 
           <button
-            className="navbar-burger burger"
+            role="button"
+            class="navbar-burger burger"
             aria-label="menu"
             aria-expanded="false"
+            data-target="navbarBasicExample"
           >
+            <span aria-hidden="true" />
             <span aria-hidden="true" />
             <span aria-hidden="true" />
             <span aria-hidden="true" />
